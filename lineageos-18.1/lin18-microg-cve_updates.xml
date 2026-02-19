@@ -15,19 +15,23 @@
     <remove-project name="LineageOS/android_system_bt" />
     <remove-project name="LineageOS/android_system_timezone" />
     <remove-project name="LineageOS/android_vendor_qcom_opensource_system_bt" />
+    <remove-project name="LineageOS/android_packages_apps_CertInstaller" />
     <remove-project name="LineageOS/android_packages_apps_DocumentsUI" />
     <remove-project name="LineageOS/android_packages_apps_ManagedProvisioning" />
     <remove-project name="LineageOS/android_packages_apps_PackageInstaller" />
     <remove-project name="LineageOS/android_packages_providers_DownloadProvider" />
     <remove-project name="LineageOS/android_packages_providers_MediaProvider" />
+    <remove-project name="LineageOS/android_packages_services_Mms" />
     <remove-project name="LineageOS/android_packages_services_Telecomm" />
     <remove-project name="LineageOS/android_packages_services_Telephony" />
     <remove-project name="LineageOS/android_vendor_qcom_opensource_packages_apps_Bluetooth" />
 
     <remove-project name="platform/external/dng_sdk" />
     <remove-project name="platform/external/giflib" />
+    <remove-project name="platform/external/libjpeg-turbo" />
     <remove-project name="platform/external/skia" />
     <remove-project name="platform/external/sonivox" />
+    <remove-project name="platform/external/sqlite" />
     <remove-project name="platform/packages/modules/CellBroadcastService" />
     <remove-project name="platform/prebuilts/abi-dumps/vndk" />
     <remove-project name="platform/system/libfmq" />
@@ -38,11 +42,15 @@
     <project path="external/freetype" name="lin18-microG/android_external_freetype" groups="pdk" remote="codeberg" />
     <project path="external/giflib" name="lin18-microG/android_external_giflib" groups="pdk,qcom_msm8x26" remote="codeberg" />
     <project path="external/icu" name="lin18-microG/android_external_icu" groups="pdk" remote="codeberg" />
+    <project path="external/libjpeg-turbo" name="lin18-microG/android_external_libjpeg-turbo" groups="pdk" remote="codeberg" />
     <project path="external/skia" name="lin18-microG/android_external_skia" groups="pdk,qcom_msm8x26" remote="codeberg" />
     <project path="external/sonivox" name="lin18-microG/android_external_sonivox" groups="pdk" remote="codeberg" />
+    <project path="external/sqlite" name="lin18-microG/android_external_sqlite" groups="pdk" remote="codeberg" />
     <project path="frameworks/av" name="lin18-microG/android_frameworks_av" groups="pdk" remote="codeberg" />
     <project path="frameworks/opt/telephony" groups="pdk"
              name="lin18-microG/android_frameworks_opt_telephony" remote="codeberg" />
+    <project path="packages/apps/CertInstaller" groups="pdk-cw-fs,pdk-fs"
+             name="lin18-microG/android_packages_apps_CertInstaller" remote="codeberg" />
     <project path="packages/apps/DocumentsUI" groups="pdk-cw-fs,pdk-fs"
              name="lin18-microG/android_packages_apps_DocumentsUI" remote="codeberg" />
     <project path="packages/apps/ManagedProvisioning" groups="pdk-fs"
@@ -55,6 +63,8 @@
              name="lin18-microG/android_packages_providers_MediaProvider" remote="codeberg" />
     <project path="packages/providers/DownloadProvider" groups="pdk-cw-fs,pdk-fs"
              name="lin18-microG/android_packages_providers_DownloadProvider" remote="codeberg" />
+    <project path="packages/services/Mms" groups="pdk-cw-fs,pdk-fs"
+             name="lin18-microG/android_packages_services_Mms" remote="codeberg" />
     <project path="packages/services/Telecomm" groups="pdk-cw-fs,pdk-fs"
              name="lin18-microG/android_packages_services_Telecomm" remote="codeberg" />
     <project path="packages/services/Telephony" groups="pdk-cw-fs,pdk-fs"
