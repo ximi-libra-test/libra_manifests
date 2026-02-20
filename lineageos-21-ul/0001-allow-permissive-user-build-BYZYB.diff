@@ -1,0 +1,52 @@
+Allow permissive user builds
+taken from BYZYB's repo_18.diff
+--- a/system/sepolicy/Android.mk
++++ a/system/sepolicy/Android.mk
+@@ -79,10 +79,11 @@
+ mixed_sepolicy_build :=
+ endif
+ 
+-NEVERALLOW_ARG :=
++# Hacks to keep SELinux permissive in user builds
++SELINUX_IGNORE_NEVERALLOWS := true
+ ifeq ($(SELINUX_IGNORE_NEVERALLOWS),true)
+ ifeq ($(TARGET_BUILD_VARIANT),user)
+-$(error SELINUX_IGNORE_NEVERALLOWS := true cannot be used in user builds)
++$(warning SELINUX_IGNORE_NEVERALLOWS := true cannot be used in user builds)
+ endif
+ $(warning Be careful when using the SELINUX_IGNORE_NEVERALLOWS flag. \
+           It does not work in user builds and using it will \
+
+--- a/system/sepolicy/build/soong/policy.go	2025-04-23 09:37:33.531034510 +0800
++++ b/system/sepolicy/build/soong/policy.go	2025-04-23 10:09:44.414257281 +0800
+@@ -510,7 +510,7 @@
+ 		rule.Temporary(permissiveDomains)
+ 
+ 		msg := `==========\n` +
+-			`ERROR: permissive domains not allowed in user builds\n` +
++			`WARNING: permissive domains not allowed in user builds\n` +
+ 			`List of invalid domains:`
+ 
+ 		rule.Command().Text("if test").
+@@ -520,7 +520,7 @@
+ 			Text(`"` + msg + `"`).
+ 			Text("&& cat ").
+ 			Input(permissiveDomains).
+-			Text("; exit 1; fi")
++			Text("; fi")
+ 	}
+ 
+ 	out := android.PathForModuleOut(ctx, c.stem())
+
+--- a/system/core/init/Android.bp
++++ b/system/core/init/Android.bp
+@@ -123,7 +123,7 @@
+         "-Wthread-safety",
+         "-DALLOW_FIRST_STAGE_CONSOLE=0",
+         "-DALLOW_LOCAL_PROP_OVERRIDE=0",
+-        "-DALLOW_PERMISSIVE_SELINUX=0",
++        "-DALLOW_PERMISSIVE_SELINUX=1",
+         "-DREBOOT_BOOTLOADER_ON_PANIC=0",
+         "-DWORLD_WRITABLE_KMSG=0",
+         "-DDUMP_ON_UMOUNT_FAILURE=0",
+

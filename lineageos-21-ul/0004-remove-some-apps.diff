@@ -1,0 +1,58 @@
+--- a/vendor/lineage/config/common.mk	2025-04-21 21:16:31.841651158 +0800
++++ b/vendor/lineage/config/common.mk	2025-04-21 22:24:47.398167538 +0800
+@@ -29,9 +29,6 @@
+     vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+     vendor/lineage/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions
+ 
+-PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
+-    system/addon.d/50-lineage.sh
+-
+ ifneq ($(strip $(AB_OTA_PARTITIONS) $(AB_OTA_POSTINSTALL_CONFIG)),)
+ PRODUCT_COPY_FILES += \
+     vendor/lineage/prebuilt/common/bin/backuptool_ab.sh:$(TARGET_COPY_OUT_SYSTEM)/bin/backuptool_ab.sh \
+@@ -106,9 +103,7 @@
+ # Lineage packages
+ PRODUCT_PACKAGES += \
+     LineageParts \
+-    LineageSettingsProvider \
+-    LineageSetupWizard \
+-    Updater
++    LineageSettingsProvider
+ 
+ PRODUCT_COPY_FILES += \
+     vendor/lineage/prebuilt/common/etc/init/init.lineage-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-updater.rc
+@@ -192,7 +187,8 @@
+ 
+ # Dex preopt
+ PRODUCT_DEXPREOPT_SPEED_APPS += \
+-    SystemUI
++    SystemUI \
++    Settings
+ 
+ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
+ PRODUCT_PACKAGE_OVERLAYS += \
+
+--- a/vendor/lineage/config/common_full.mk	2025-04-23 12:14:09.674449464 +0800
++++ b/vendor/lineage/config/common_full.mk	2025-04-23 12:14:28.883550721 +0800
+@@ -12,17 +12,14 @@
+     Eleven \
+     Etar \
+     Profiles \
+-    Recorder \
+-    Seedvault
++    Recorder
+ 
+ ifneq ($(PRODUCT_NO_CAMERA),true)
+ PRODUCT_PACKAGES += \
+     Aperture
+-endif
+ 
+-ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
+-PRODUCT_PACKAGES += \
+-    AudioFX
++PRODUCT_DEXPREOPT_SPEED_APPS += \
++   Aperture
+ endif
+ 
+ # Extra cmdline tools
+
