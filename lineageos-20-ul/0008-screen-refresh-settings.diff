@@ -32,7 +32,7 @@ screen refresh rate control from byzyb's diff
 
 --- a/packages/apps/Settings/res/values/cm_strings.xml
 +++ b/packages/apps/Settings/res/values/cm_strings.xml
-@@ -198,6 +198,20 @@
+@@ -184,6 +184,20 @@
      <!-- Summary text for screen off UDFPS [CHAR LIMIT=NONE]-->
      <string name="ambient_display_screen_off_udfps_summary">To wake up your screen and unlock, long press your under-display fingerprint sensor.</string>
  
@@ -52,13 +52,13 @@ screen refresh rate control from byzyb's diff
 +
      <!-- Warning message for the sd card setup -->
      <string name="storage_warning_internal">Warning: This option may not work properly or lead to data loss and is therefore not recommended!</string>
- </resources>
+
 
 --- a/packages/apps/Settings/res/xml/display_settings.xml	2025-04-21 19:03:34.032607148 +0800
 +++ b/packages/apps/Settings/res/xml/display_settings.xml	2025-04-21 21:41:13.894414662 +0800
-@@ -193,6 +193,15 @@
-             android:summary="@string/status_bar_double_tap_to_sleep_summary"
-             android:defaultValue="true" />
+@@ -192,6 +192,15 @@
+             android:defaultValue="@*lineageos.platform:bool/config_dt2sGestureEnabledByDefault"
+             settings:requiresConfig="@*lineageos.platform:bool/config_dt2sGestureAvailable" />
  
 +        <!-- refresh rate control -->
 +        <com.android.settings.display.RefreshRateListPreference
