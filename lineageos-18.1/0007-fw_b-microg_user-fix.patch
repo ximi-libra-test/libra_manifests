@@ -1,0 +1,15 @@
+https://review.lineageos.org/q/topic:microg-eval
+unlock microg spoofing on user builds
+--- a/frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java	2026-02-21 16:00:44.916036091 +0800
++++ b/frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java	2026-02-21 16:00:54.915964541 +0800
+@@ -4424,9 +4424,6 @@
+     private static native boolean isDebuggable();
+ 
+     public static boolean isMicrogSigned(AndroidPackage p) {
+-        if (!isDebuggable()) {
+-            return false;
+-        }
+ 
+         // Allowlist the following apps:
+         // * com.android.vending - microG Companion
+
