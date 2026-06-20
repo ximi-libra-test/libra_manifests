@@ -1,4 +1,11 @@
-with cherry picked unmerged ASB patches from
-https://review.lineageos.org/q/project:LineageOS/android+branch:lineage-18.1
-https://codeberg.org/lin18-microG
+repo init -u https://github.com/LineageOS/android.git -b lineage-18.1 --git-lfs --depth=1
+repo sync
 
+git clone https://github.com/ximi-libra-test/android_device_xiaomi_libra -b lineage-18.1-rev device/xiaomi/libra
+git clone https://github.com/ximi-libra-test/android_vendor_xiaomi_libra/ -b lineage-18.1 vendor/xiaomi/libra
+
+git clone https://github.com/LineageOS/android_hardware_sony_timekeep -b lineage-18.1 hardware/sony/timekeep
+git clone https://github.com/LineageOS/android_hardware_xiaomi -b lineage-18.1 hardware/xiaomi
+
+. build/envsetup.sh
+lunch lineage_libra-user

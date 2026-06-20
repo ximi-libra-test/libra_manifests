@@ -2,7 +2,7 @@
 <manifest>
   <project name="ximi-libra-test/android_device_xiaomi_libra" path="device/xiaomi/libra" remote="github" revision="lineage-18.1-rev" />
   <!--
-  <project name="ximi-libra-test/android_kernel_xiaomi_libra" path="device/xiaomi/libra" remote="github" revision="lineage-18.1-ksu" />
+  <project name="ximi-libra-test/android_kernel_xiaomi_libra" path="kernel/xiaomi/libra" remote="github" revision="lineage-18.1-ksu" />
   -->
   <project name="ximi-libra-test/android_vendor_xiaomi_libra" path="vendor/xiaomi/libra" remote="github" revision="lineage-18.1" />
   <project name="LineageOS/android_hardware_sony_timekeep" path="hardware/sony/timekeep" remote="github" revision="lineage-18.1" />
